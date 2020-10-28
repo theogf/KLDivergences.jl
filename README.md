@@ -8,11 +8,11 @@ The list of the pair of distributions supported analytically is given here
 
 ## Univariate distributions
 |---|---|
-|p | q |
+| p | q |
 | Normal | Normal |
 | Poisson | Poisson |
 
 ## Multivariate distributions
 |---|---|
-|p | q |
+| p | q |
 | MvNormal | MvNormal |
