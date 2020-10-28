@@ -7,12 +7,14 @@ There is only one function exported : `KL` which takes two arguments `p` and `q`
 The list of the pair of distributions supported analytically is given here 
 
 ## Univariate distributions
-|---|---|
+
 | p | q |
+|:-------:|:-------:|
 | Normal | Normal |
 | Poisson | Poisson |
 
 ## Multivariate distributions
-|---|---|
+
 | p | q |
+|:---:|:---:|
 | MvNormal | MvNormal |
