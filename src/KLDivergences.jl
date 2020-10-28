@@ -2,7 +2,7 @@ module KLDivergences
 
 using Distributions
 using LinearAlgebra, PDMats
-using Distances
+using Distances, SpecialFunctions
 
 export KL
 

@@ -12,6 +12,10 @@ The list of the pair of distributions supported analytically is given here
 |:-------:|:-------:|
 | Normal | Normal |
 | Poisson | Poisson |
+| Exponential | Exponential |
+| Gamma | Gamma |
+| InverseGamma | InverseGamma |
+| Beta | Beta |
 
 ## Multivariate distributions
 
