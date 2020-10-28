@@ -1,5 +1,7 @@
 # KLDivergences
 [![Build Status](https://travis-ci.com/theogf/KLDivergences.jl.svg?branch=main)](https://travis-ci.com/theogf/KLDivergences.jl)
+[![Coverage Status](https://coveralls.io/repos/github/theogf/KLDivergences.jl/badge.svg?branch=main)](https://coveralls.io/github/theogf/KLDivergences.jl?branch=main)
+
 
 Compute [KL Divergences](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) using [Distributions.jl](https://github.com/JuliaStats/Distributions.jl) objects either analytically (PR are welcome to enrich the library) or via Monte Carlo sampling.
 
