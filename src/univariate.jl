@@ -1,5 +1,5 @@
 function KL(p::Beta, q::Beta)
-    return logbeta(q.α, q.β) - logbeta(q.α, q.β) + (p.α - q.α) * digamma(p.α) +
+    return logbeta(q.α, q.β) - logbeta(p.α, p.β) + (p.α - q.α) * digamma(p.α) +
         (p.β - q.β) * digamma(p.β) + (q.α - p.α + q.β - p.β) * digamma(p.α + p.β)
 end
 
