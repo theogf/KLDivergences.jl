@@ -1,7 +1,7 @@
 name = "KLDivergences"
 uuid = "3c9cd921-3d3f-41e2-830c-e020174918cc"
 authors = ["Theo Galy-Fajou <theo.galyfajou@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Distances = "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
@@ -11,7 +11,7 @@ PDMats = "90014a1f-27ba-587c-ab20-58faa44d9150"
 SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 
 [compat]
-Distances = "0.10"
+Distances = "0.9, 0.10"
 Distributions = "0.23, 0.24"
 PDMats = "0.9, 0.10"
 SpecialFunctions = "0.10"
