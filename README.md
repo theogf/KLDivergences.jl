@@ -1,6 +1,5 @@
 # KLDivergences
 ![BuildStatus](https://github.com/theogf/KLDivergences.jl/workflows/CI/badge.svg)
-[![Build Status](https://travis-ci.com/theogf/KLDivergences.jl.svg?branch=main)](https://travis-ci.com/theogf/KLDivergences.jl)
 [![Coverage Status](https://coveralls.io/repos/github/theogf/KLDivergences.jl/badge.svg?branch=main)](https://coveralls.io/github/theogf/KLDivergences.jl?branch=main)
 
 
