@@ -31,7 +31,7 @@
     end
     @testset "Poisson" begin
         p = Poisson(4)
-        q = Normal(7.0)
+        q = Normal(5.0)
         @test KL(p, q) > 0
         @test KL(p, q) ≈ KL(p, q, 100_000) atol = 0.2
     end
