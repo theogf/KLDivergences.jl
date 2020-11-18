@@ -14,7 +14,7 @@ SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 Distances = "0.9, 0.10"
 Distributions = "0.23, 0.24"
 PDMats = "0.9, 0.10"
-SpecialFunctions = "0.10"
+SpecialFunctions = "0.10, 1.0"
 julia = "1"
 
 [extras]
