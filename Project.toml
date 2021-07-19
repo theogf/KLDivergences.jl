@@ -13,7 +13,7 @@ StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 Distances = "0.9, 0.10"
-Distributions = "0.23, 0.24"
+Distributions = "0.23, 0.24, 0.25"
 PDMats = "0.9, 0.10, 0.11"
 SpecialFunctions = "0.10, 1.2"
 StatsBase = "0.33"
