@@ -30,10 +30,10 @@
         @test KL(p, q) ≈ KL(p, q, 100_000) atol = 0.1
     end
     @testset "Poisson" begin
-        p = Poisson(4)
-        q = Normal(5.0)
+        p = Poisson(4.0)
+        q = Poisson(3.0)
         @test KL(p, q) > 0
-        @test KL(p, q) ≈ KL(p, q, 100_000) atol = 0.2
+        @test KL(p, q) ≈ KL(p, q, 100_000) atol = 0.1
     end
     
 end
