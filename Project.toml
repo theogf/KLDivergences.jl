@@ -1,7 +1,7 @@
 name = "KLDivergences"
 uuid = "3c9cd921-3d3f-41e2-830c-e020174918cc"
 authors = ["Theo Galy-Fajou <theo.galyfajou@gmail.com> and contributors"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 Distances = "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
@@ -9,12 +9,14 @@ Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 PDMats = "90014a1f-27ba-587c-ab20-58faa44d9150"
 SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
 Distances = "0.9, 0.10"
-Distributions = "0.23, 0.24"
-PDMats = "0.9, 0.10"
+Distributions = "0.23, 0.24, 0.25"
+PDMats = "0.9, 0.10, 0.11"
 SpecialFunctions = "0.10, 1.2"
+StatsBase = "0.33"
 julia = "1"
 
 [extras]
