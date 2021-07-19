@@ -1,10 +1,15 @@
 module KLDivergences
 
+using Distributions: StatsBase
 using Distributions
-using LinearAlgebra, PDMats
-using Distances, SpecialFunctions
+using LinearAlgebra
+using PDMats
+using Distances
+using SpecialFunctions
+using StatsBase: StatsBase, kldivergence
 
-export KL
+
+export KL, kldivergence
 
 """
     KL(p::Distribution, q::Distribution) -> T
@@ -13,6 +18,8 @@ export KL
 Return the KL divergence of  KL(p||q), either by sampling or analytically
 """
 KL
+
+StatsBase.kldivergence(p::Sampleable, q::Sampleable) = KL(p, q)
 
 KLbase(p, q, x) = logpdf(p, x) - logpdf(q, x)
 
