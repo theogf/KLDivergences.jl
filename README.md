@@ -25,3 +25,7 @@ The list of the pair of distributions supported analytically is given here
 | p | q |
 |:---:|:---:|
 | MvNormal | MvNormal |
+| AbstractMvNormal* | AbstractMvNormal* |
+
+\* Note that the generic approach is not optimized but only requires you to define `mean(p)` and `cov(p)` on your distribution
+
