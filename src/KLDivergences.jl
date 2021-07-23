@@ -9,7 +9,7 @@ using SpecialFunctions
 using StatsBase: StatsBase, kldivergence
 
 
-export KL, kldivergence
+export KL, kldivergence, symmetricKL
 
 """
     KL(p::Distribution, q::Distribution) -> T
@@ -19,9 +19,15 @@ Return the KL divergence of  KL(p||q), either by sampling or analytically
 """
 KL
 
-StatsBase.kldivergence(p::Sampleable, q::Sampleable) = KL(p, q)
+# This is type piracy... Bad! Bad! Bad!
+# See : https://github.com/JuliaStats/Distributions.jl/blob/master/src/functionals.jl#L32
+StatsBase.kldivergence(p::UnivariateDistribution, q::UnivariateDistribution) = KL(p, q)
+StatsBase.kldivergence(p::MultivariateDistribution, q::MultivariateDistribution) = KL(p, q)
 
-KLbase(p, q, x) = logpdf(p, x) - logpdf(q, x)
+function KLbase(p, q, x)
+    # We assume that p(x) > 0 since x is sampled from p
+    logpdf(p, x) - logpdf(q, x)
+end
 
 ## Generic fallback for multivariate Distributions
 function KL(p::UnivariateDistribution, q::UnivariateDistribution, n_samples = 1_000)

@@ -1,30 +1,68 @@
+"""
+    KL(p::Beta, q::Beta)
+
+See [KL Beta](https://en.wikipedia.org/wiki/Beta_distribution#Quantities_of_information_(entropy))
+"""
 function KL(p::Beta, q::Beta)
-    return logbeta(q.α, q.β) - logbeta(p.α, p.β) + (p.α - q.α) * digamma(p.α) +
-        (p.β - q.β) * digamma(p.β) + (q.α - p.α + q.β - p.β) * digamma(p.α + p.β)
+    αp, βp = params(p)
+    αq, βq = params(q)
+    return logbeta(αq, βq) - logbeta(αp, βp) + (αp - αq) * digamma(αp) +
+        (βp - βq) * digamma(βp) + (αq - αp + βq - βp) * digamma(αp + βp)
 end
 
+"""
+    KL(p::Exponential, q::Exponential)
+
+See [KL Exponential](https://en.wikipedia.org/wiki/Exponential_distribution#Kullback%E2%80%93Leibler_divergence)
+"""
 function KL(p::Exponential, q::Exponential)
-    return log(p.θ) - log(q.θ) + q.θ / p.θ - 1
+    λp = scale(p)
+    λq = scale(q)
+    return log(λp) - log(λq) + λq / λp - 1
 end
 
+"""
+    KL(p::Gamma, q::Gamma)
+
+See [KL Gamma](https://en.wikipedia.org/wiki/Gamma_distribution#Kullback%E2%80%93Leibler_divergence)
+"""
 function KL(p::Gamma, q::Gamma)
-    return (p.α - q.α) * digamma(p.α) - loggamma(p.α) + loggamma(q.α) +
-        q.α * (log(q.θ) - log(p.θ)) + p.α * (p.θ - q.θ) / q.θ
-end
-
-function KL(p::InverseGamma, q::InverseGamma)
-    αp = p.invd.α; αq = q.invd.α
+    # We use the parametrization with the rate β
+    αp, αq = shape.((p, q))
+    βp, βq = rate.((p, q))
     return (αp - αq) * digamma(αp) - loggamma(αp) + loggamma(αq) +
-        αq * (log(p.θ) - log(q.θ)) + αp * (q.θ - p.θ) / p.θ
+        αq * (log(βp) - log(βq)) + αp * (βq - βp) / βp
 end
 
+"""
+    KL(p::InverseGamma, q::InverseGamma)
+
+See [KL Inverse-Gamma](https://en.wikipedia.org/wiki/Inverse-gamma_distribution#Properties)
+"""
+function KL(p::InverseGamma, q::InverseGamma)
+    # We can reuse the implementation of Gamma
+    return KL(Gamma(shape(p), rate(p)), Gamma(shape(q), rate(q)))
+end
+
+"""
+    KL(p::Normal, q::Normal)
+
+See [KL Gaussian](https://en.wikipedia.org/wiki/Normal_distribution#Other_properties)
+"""
 function KL(p::Normal, q::Normal)
-    return 0.5 * (var(p) / var(q) + abs2(mean(p) - mean(q)) / var(q) - 1 + 2 * (log(std(q)) - log(std(p))))
+    μp, σp = params(p)
+    μq, σq = params(q)
+    return 0.5 * (abs2(σp / σq) + abs2((μp - μq) / σq) - 1 + 2 * (log(σq) - log(σp)))
 end
 
-# λq - λp + λp log λp / λq
+"""
+    KL(p::Poisson, q::Poisson)
+
+See [KL Poisson](https://en.wikipedia.org/wiki/Poisson_distribution#Other_properties)
+"""
 function KL(p::Poisson, q::Poisson)
-    return q.λ - p.λ + p.λ * (log(p.λ) - log(q.λ))
+    λp, λq = rate.((p, q))
+    return λq - λp + λp * (log(λp) - log(λq))
 end
 
 
