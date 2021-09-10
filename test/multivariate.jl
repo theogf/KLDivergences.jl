@@ -1,4 +1,4 @@
-@testset "univariate" begin
+@testset "multivariate" begin
     struct CholeskyMvNormal{TL,Tm} <: Distributions.AbstractMvNormal
         m::Tm
         L::TL
