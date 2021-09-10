@@ -9,7 +9,7 @@ using SpecialFunctions
 using StatsBase: StatsBase, kldivergence
 
 
-export KL, kldivergence, symmetricKL
+export KL, symmetricKL
 
 """
     KL(p::Distribution, q::Distribution) -> T
