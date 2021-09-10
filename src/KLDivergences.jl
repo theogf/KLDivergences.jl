@@ -19,11 +19,6 @@ Return the KL divergence of  KL(p||q), either by sampling or analytically
 """
 KL
 
-# This is type piracy... Bad! Bad! Bad!
-# See : https://github.com/JuliaStats/Distributions.jl/blob/master/src/functionals.jl#L32
-StatsBase.kldivergence(p::UnivariateDistribution, q::UnivariateDistribution) = KL(p, q)
-StatsBase.kldivergence(p::MultivariateDistribution, q::MultivariateDistribution) = KL(p, q)
-
 function KLbase(p, q, x)
     # We assume that p(x) > 0 since x is sampled from p
     logpdf(p, x) - logpdf(q, x)
