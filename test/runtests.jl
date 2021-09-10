@@ -14,7 +14,6 @@ using Test
         p = Exponential(2.0)
         q = Exponential(5.0)
         @test symmetricKL(p, q) == symmetricKL(q, p)
-        @test kldivergence(p, q) == KL(p, q)
     end
 
 end
