@@ -41,5 +41,6 @@ end
 
 include("univariate.jl")
 include("multivariate.jl")
+include("horrible_ad_workaround.jl")
 
 end
