@@ -1,3 +1,7 @@
+# !! The content of this package has now been improved and directly integrated in Distributions.jl !!
+(For more details see [this PR](https://github.com/JuliaStats/Distributions.jl/pull/1414))
+
+
 # KLDivergences
 ![BuildStatus](https://github.com/theogf/KLDivergences.jl/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/theogf/KLDivergences.jl/badge.svg?branch=main)](https://coveralls.io/github/theogf/KLDivergences.jl?branch=main)
